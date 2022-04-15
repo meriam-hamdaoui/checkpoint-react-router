@@ -1,36 +1,46 @@
 import React from "react";
-import { useParams, useNavigate } from "react-router-dom";
-// import { Route } from "react-router-dom";
-import Rating from "../../Rating";
+import { NavLink, Outlet } from "react-router-dom";
 
-const MovieDetails = ({ moviesList }) => {
-  const params = useParams();
-  let movie = moviesList.find((film) => film.idItem === +params.idItem);
-  console.log(moviesList);
-  const navigate = useNavigate();
-
-  const styling = {
-    display: "flex",
-    flexDirection: "columns",
-  };
+const MovieDetails = () => {
   return (
-    <div className="movieDetails" style={styling}>
-      <div>
-        <img src={movie.posterURL} alt={movie.title} />
-        <div>
-          <button onClick={() => navigate(-1)}>
-            <i class="fa-solid fa-caret-left"></i> GO BACK
-          </button>
-          <Rating rateNbr={movie.rating} />
-        </div>
-      </div>
-      <div>
-        <h1>
-          {movie.title} <span>released</span> {movie.year}
-        </h1>
-        <p>{movie.description}</p>
-        {/* <iframe href={trailerURL}</iframe> */}
-      </div>
+    <div
+      style={{
+        width: "100%",
+        marginTop: "2%",
+        alignItems: "baseline",
+      }}
+    >
+      <nav
+        style={{
+          marginLeft: "2%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          fontFamily: "Grape Nuts cursive",
+        }}
+      >
+        <NavLink
+          style={{
+            textDecoration: "none",
+            color: "gold",
+            fontSize: "25px",
+          }}
+          to="description"
+        >
+          Description
+        </NavLink>
+        <NavLink
+          style={{
+            textDecoration: "none",
+            color: "gold",
+            fontSize: "30px",
+          }}
+          to="trailer"
+        >
+          Trailer
+        </NavLink>
+        <Outlet />
+      </nav>
     </div>
   );
 };

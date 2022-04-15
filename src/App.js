@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Helmet from "react-helmet";
 import { Routes, Route } from "react-router-dom";
 import SearchMovie from "./Components/filterBar/SearchMovie";
+import Description from "./Components/movieDetails/Description";
+import Trailer from "./Components/movieDetails/Trailer";
 import MovieDetails from "./Components/movieDetails/MovieDetails";
 import MovieList from "./Components/movieList/MovieList";
 import listMovies from "./moviesInfo";
@@ -57,10 +59,22 @@ const App = () => {
             />
           }
         />
-        <Route
-          path="/movie-details/:idItem"
-          element={<MovieDetails moviesList={moviesList} />}
-        ></Route>
+        <Route path="/movie-details/:idItem" element={<MovieDetails />}>
+          {/* default path for our nested route */}
+          <Route
+            index
+            element={<Description moviesList={moviesList} />}
+          ></Route>
+          <Route
+            path="description"
+            element={<Description moviesList={moviesList} />}
+          ></Route>
+
+          <Route
+            path="trailer"
+            element={<Trailer moviesList={moviesList} />}
+          ></Route>
+        </Route>
       </Routes>
     </div>
   );

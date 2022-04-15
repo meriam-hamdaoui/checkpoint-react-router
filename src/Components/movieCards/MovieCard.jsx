@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Rating from "../../Rating";
 import "./movieCard.css";
 
@@ -8,6 +8,7 @@ const MovieCard = ({
   deleteFunction,
   movieInfo: { idItem, title, posterURL, rating },
 }) => {
+  const navigate = useNavigate();
   return (
     <div className="movieCard">
       <div className="cardHeader">
@@ -29,11 +30,12 @@ const MovieCard = ({
         }}
         className="cardBottom"
       >
-        <Link to={`/movie-details/${idItem}`}>
-          <button className="btn-details">
-            DETAILS <i class="fa-solid fa-play"></i>
-          </button>
-        </Link>
+        <button
+          className="btn-details"
+          onClick={() => navigate(`/movie-details/${idItem}`)}
+        >
+          DETAILS <i class="fa-solid fa-play"></i>
+        </button>
         <Rating rateNbr={rating} />
       </div>
     </div>

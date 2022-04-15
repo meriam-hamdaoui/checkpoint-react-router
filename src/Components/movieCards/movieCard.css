@@ -30,7 +30,8 @@
   left: 88%;
 }
 .fa-xmark,
-.fa-play {
+.fa-play,
+.fa-solid {
   color: #ffd52d;
   transition: 0.2s;
   font-size: 20px;
