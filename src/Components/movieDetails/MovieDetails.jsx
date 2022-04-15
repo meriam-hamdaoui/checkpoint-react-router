@@ -1,46 +1,18 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import "./movieDetails.css";
 
 const MovieDetails = () => {
   return (
-    <div
-      style={{
-        width: "100%",
-        marginTop: "2%",
-        alignItems: "baseline",
-      }}
-    >
-      <nav
-        style={{
-          marginLeft: "2%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-around",
-          fontFamily: "Grape Nuts cursive",
-        }}
-      >
-        <NavLink
-          style={{
-            textDecoration: "none",
-            color: "gold",
-            fontSize: "25px",
-          }}
-          to="description"
-        >
-          Description
-        </NavLink>
-        <NavLink
-          style={{
-            textDecoration: "none",
-            color: "gold",
-            fontSize: "30px",
-          }}
-          to="trailer"
-        >
-          Trailer
-        </NavLink>
-        <Outlet />
+    <div className="movieDetails">
+      <nav>
+        <NavLink to="description">Description</NavLink>
+        <NavLink to="trailer">Trailer</NavLink>
       </nav>
+
+      <div>
+        <Outlet />
+      </div>
     </div>
   );
 };
