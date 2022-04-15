@@ -9,13 +9,14 @@ nav {
   justify-content: space-around;
   text-align: center;
   margin-bottom: 3%;
+  margin-top: 1.5%;
 }
 nav a {
   color: gold;
   font-size: 25px;
 }
 nav a:hover {
-  color: gold;
+  color: #116466;
 }
 nav a.active {
   text-decoration: none;
